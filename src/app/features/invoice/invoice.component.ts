@@ -177,7 +177,7 @@ export class InvoiceComponent implements OnInit {
 
   async showDeleteDialog(row: any) {
     const confirmed = await this.confirmDialogService.openConfirmDialog({
-      title: '¿Estas seguro de eliminar esta factura?',
+      title: '¿Estás seguro de eliminar este detalle?',
       message: 'Esta acción no se puede revertir',
       confirmLabel: 'Eliminar',
       icon: 'pi pi-trash',
