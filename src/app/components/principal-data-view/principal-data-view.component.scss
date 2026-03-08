@@ -1,0 +1,29 @@
+#general-data-view {
+  .general-data-view {
+    &-container {
+      &-row {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border: 1px solid var(--disable-color);
+        padding: 1rem 1.5rem;
+
+        &-label {
+          margin-left: 0.7rem;
+        }
+      }
+    }
+
+    &-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.8rem;
+
+      button {
+        width: 7rem;
+        margin: 0;
+      }
+    }
+  }
+}

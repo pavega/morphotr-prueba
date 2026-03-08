@@ -1,0 +1,16 @@
+<p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: width }" [closable]="false" [draggable]="false"
+    [resizable]="false" styleClass="principal-dialog" (onHide)="close()">
+
+    <ng-template pTemplate="header">
+        {{ title }}
+    </ng-template>
+
+    <div class="dialog-content">
+        <ng-content></ng-content>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <ng-content select="[dialog-footer]"></ng-content>
+    </ng-template>
+
+</p-dialog>

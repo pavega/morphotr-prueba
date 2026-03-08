@@ -1,0 +1,41 @@
+<div class="create-invoice">
+    <div class="create-invoice-content">
+        <form [formGroup]="invoiceForm" (ngSubmit)="createInvoice()">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Número de factura <span class="text-error">*</span>
+                    </label>
+
+                    <input type="text" pInputText formControlName="number" class="w-100" class="form-control"
+                        [ngClass]="{'p-invalid': isInvalid('number')}" />
+
+                    <small class="text-error" *ngIf="isInvalid('number')">
+                        {{ getError('number') }}
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Fecha <span class="text-error">*</span>
+                    </label>
+
+                    <p-calendar formControlName="date" dateFormat="dd/mm/yy" styleClass="w-100"
+                        [ngClass]="{'p-invalid': isInvalid('date')}" appendTo="body" [showIcon]="true"
+                        [readonlyInput]="true"></p-calendar>
+
+                    <small class="text-error" *ngIf="isInvalid('date')">
+                        {{ getError('date') }}
+                    </small>
+
+                </div>
+            </div>
+
+            <div class="create-invoice-content-footer">
+                <button class="primary-btn" type="submit" [disabled]="saveButtonDisable">Guardar</button>
+                <button class="secondary-btn" type="button" (click)="newInvoice()">Nueva factura</button>
+            </div>
+        </form>
+    </div>
+</div>

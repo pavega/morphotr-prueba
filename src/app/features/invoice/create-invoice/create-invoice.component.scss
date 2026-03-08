@@ -1,0 +1,14 @@
+.create-invoice {
+  &-content {
+    .col-md-6 {
+      margin-bottom: 1rem;
+    }
+
+    &-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+}

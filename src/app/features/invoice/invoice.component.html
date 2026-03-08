@@ -1,0 +1,89 @@
+<div class="invoices">
+    <div class="invoices-content">
+        <div class="invoices-content-title">
+            <h2>Crear nueva factura</h2>
+        </div>
+
+        <div class="main-card">
+            <div class="invoices-content-subtitle">
+                <i class="bi bi-receipt-cutoff"></i> Información general
+            </div>
+
+            <app-create-invoice (save)="getInvoiceDetails($event)" />
+        </div>
+
+        <div class="invoices-content-table main-card">
+            <div class="invoices-content-table-subtitle">
+                <div class="invoices-content-table-subtitle-text">
+                    <i class="bi bi-list-ul"></i> Detalle de facturación
+                </div>
+                <div class="invoices-content-table-subtitle-add">
+                    <button (click)="openLineDialog()" class="primary-btn">Agregar línea</button>
+                </div>
+            </div>
+
+            @if(invoiceDetails().length>0){
+            <app-principal-table [columns]="columns" [data]="invoiceDetails()" (delete)="deleteInvoiceDetail($event)">
+                <tr class="table-summary-row">
+                    <td colspan="4" class="summary-label">Total factura</td>
+                    <td class="summary-value">
+                        {{ getTotal() | number:'1.2-2' }}
+                    </td>
+                    <td></td>
+                </tr>
+            </app-principal-table>
+            } @else {
+            <app-empty [text]="'Agrega una nueva línea'" />
+            }
+        </div>
+
+
+        <app-principal-dialog [(visible)]="lineDialogVisible" title="Nueva factura" [width]="'37.5rem'">
+            <form [formGroup]="invoiceDetailForm" (ngSubmit)="createLineDetail()" class="row g-3">
+                <div class="col-md-12">
+
+                    <label>
+                        Producto <span class="text-error">*</span>
+                    </label>
+                    <p-inputGroup class="custom-input-group">
+                        <input type="text" pInputText placeholder="Escribe aquí..." formControlName="description"
+                            class="w-100" class="form-control" />
+                        <button type="button" pButton icon="pi pi-search" class="custom-btn-group"
+                            (click)="openProductDialog()"></button>
+                    </p-inputGroup>
+
+                    <small class="text-error" *ngIf="isInvalid('product')">
+                        {{ getError('product') }}
+                    </small>
+                </div>
+
+                <div class="col-md-12">
+                    <label>
+                        Cantidad <span class="text-error">*</span>
+                    </label>
+                    <input type="number" pInputText formControlName="quantity" class="w-100" class="form-control"
+                        [min]="1" [ngClass]="{'p-invalid': isInvalid('quantity')}" />
+                    <small class="text-error" *ngIf="isInvalid('quantity')">
+                        {{ getError('quantity') }}
+                    </small>
+                </div>
+
+                <div dialog-footer>
+                    <div class="dialog-footer">
+                        <button class="primary-btn" type="submit">Guardar</button>
+                        <button pButton label="Cancelar" class="secondary-btn" type="button"
+                            (click)="closeLineDialog()">
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </app-principal-dialog>
+
+        <app-principal-dialog [(visible)]="productDialogVisible" title="Seleccione un producto" [width]="'45rem'"
+            (visibleChange)="handleClose($event)">
+            <app-principal-data-view #productDataView [items]="items" (onConfirmSelection)="onSelectedItem($event)"
+                [selectionMode]="multiselect" />
+        </app-principal-dialog>
+    </div>
+</div>

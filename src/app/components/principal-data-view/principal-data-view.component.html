@@ -1,0 +1,34 @@
+<div id="general-data-view">
+    <div class="general-data-view">
+        <input class="form-control my-4" placeholder="Buscar ..." pInputText
+            (input)="searchTerm.set($any($event.target).value)" />
+
+        <p-dataView #dataView [value]="filteredItems()" [rows]="5" [paginator]="true" [showCurrentPageReport]="true"
+            currentPageReportTemplate="{first} a {last} de {totalRecords}">
+            <ng-template pTemplate="list" let-items>
+                <div class="general-data-view-container">
+                    @for (item of items; track item.id) {
+                    <div class="general-data-view-container-row">
+
+                        <p-checkbox [binary]="true" [ngModel]="isChecked(item)" (ngModelChange)="toggleSelection(item)">
+                        </p-checkbox>
+
+                        <div class="general-data-view-container-row-label">
+                            {{ item.label }}
+                        </div>
+                    </div>
+                    }
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="footer">
+                @if (selectionMode() == 'multiple') {
+                <button type="submit" class="principal-btn" (click)="confirmSelection()">Guardar</button>
+                <div class="general-data-view-footer">
+                    <button type="button" class="secondary-btn" (click)="close()">Cancelar</button>
+                </div>
+                }
+            </ng-template>
+        </p-dataView>
+    </div>
+</div>

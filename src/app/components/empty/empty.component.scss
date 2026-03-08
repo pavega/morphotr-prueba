@@ -1,0 +1,35 @@
+.empty {
+  margin: 1.5rem 0;
+  padding-bottom: 1rem;
+
+  &-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-image {
+      width: 15rem;
+
+      img {
+        width: 100%;
+      }
+
+      @media (max-width: 48rem) {
+        width: 40%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &-text {
+    text-align: center;
+    color: var(--color-gray);
+  }
+
+  @media (max-width: 48rem) {
+    margin: 0 0 5rem 0;
+  }
+}

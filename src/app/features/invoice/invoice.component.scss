@@ -1,0 +1,60 @@
+.invoices {
+  &-content {
+    &-title {
+      padding: 1rem;
+      color: var(--tertiary-color);
+    }
+
+    &-subtitle {
+      border-bottom: 1px solid var(--disable-color);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--primary-color);
+
+      i {
+        font-size: 1.2rem;
+      }
+    }
+
+    &-table {
+      padding: 0;
+
+      &-subtitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--disable-color);
+        margin-bottom: 1rem;
+        padding: 2rem 2rem 0.5rem 2rem;
+
+        &-text {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: var(--primary-color);
+
+          i {
+            font-size: 1.2rem;
+          }
+        }
+
+        @media (max-width: 48rem) {
+          flex-wrap: wrap;
+
+          &-add {
+            width: 100%;
+            text-align: end;
+          }
+        }
+      }
+    }
+
+    .dialog-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+}

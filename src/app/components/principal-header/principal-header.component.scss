@@ -1,0 +1,35 @@
+.principal-header {
+  &-container {
+    margin: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--card-shadow);
+    height: 4rem;
+    background: var(--color-white);
+    padding: 0 1.5rem;
+
+    &-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &-logo {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+      }
+
+      &-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+      }
+
+      &-user-icon {
+        font-size: 1.4rem;
+      }
+
+      &-username {
+        cursor: pointer;
+      }
+    }
+  }
+}

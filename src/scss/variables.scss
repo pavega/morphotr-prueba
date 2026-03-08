@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #03a6a6;
+  --secondary-color: #f2a516;
+  --tertiary-color: #496773;
+  --background: #f4f4f4;
+  --color-white: #fff;
+  --color-black: #000;
+  --primary-color-dark: #018679;
+  --secondary-color-dark: #c98913;
+  --body-color-font: #6c757d;
+  --red-error: #ef4444;
+  --disable-color: #e9ecef;
+  --color-gray: #808080;
+
+  // FUENTES
+  --font-lg: 1.3rem;
+  --font-md: 1rem;
+  --font-sm: 0.9rem;
+  --font-xs: 0.75rem;
+
+  // SHADOWS
+  --shadow-base: 0 4px 20px -2px #263544;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  --font-main: "Regular", sans-serif;
+  --font-bold: "Bold", sans-serif;
+  --font-semi-bold: "SemiBold", sans-serif;
+  --font-thin: "Thin", sans-serif;
+
+  --body-font-size: 0.9rem;
+  --body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+}

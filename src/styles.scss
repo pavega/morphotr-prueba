@@ -1,1 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap";
+@import "./scss/variables.scss";
+@import "./app/components/principal-table/principal-table.component.scss";
+
+* {
+  margin: 0;
+  font-family: var(--font-main);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--bs-body-line-height);
+}
+
+body {
+  background-color: var(--background) !important;
+}
+
+.main-card {
+  margin: 1rem 1rem 1.5rem 1rem;
+  box-shadow: var(--card-shadow);
+  border-radius: 0.5rem;
+  background-color: var(--color-white);
+  padding: 2rem;
+
+  @media (max-width: 48rem) {
+    min-height: 70vh;
+  }
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  color: var(--color-white);
+}
+.primary-btn {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-color-dark);
+  }
+}
+
+.secondary-btn {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--secondary-color-dark);
+  }
+}
+
+.p-dialog-header {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.p-dialog-content {
+  padding: 1.5rem;
+}
+
+.p-calendar {
+  height: 34px;
+  .p-button {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+}
+.text-error {
+  color: var(--red-error);
+}
+
+.ng-invalid.ng-touched {
+  border-color: var(--red-error);
+}
+
+.p-inputgroup {
+  height: 34px;
+}
+
+.custom-input-group {
+  .form-control {
+    border-radius: 0.375rem 0 0 0.375rem !important;
+  }
+}
+
+.custom-btn-group {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.p-toast-message-content {
+  gap: 1rem !important;
+}
