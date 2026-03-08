@@ -25,19 +25,6 @@ Antes de ejecutar el proyecto asegúrate de tener instalado:
 
 ------------------------------------------------------------------------
 
-## Scripts disponibles
-
-  Script            Descripción
-  ----------------- --------------------------------------------------
-  `npm start`       Ejecuta la aplicación en modo desarrollo
-  `npm run build`   Compila el proyecto para producción
-  `npm run watch`   Compila el proyecto en modo desarrollo con watch
-  `npm test`        Ejecuta los tests con Karma
-
-
-------------------------------------------------------------------------
-
-
 ## Autor
 
 Proyecto desarrollado como parte de una prueba técnica.
