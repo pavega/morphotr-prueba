@@ -9,8 +9,7 @@
                 <div class="general-data-view-container">
                     @for (item of items; track item.id) {
                     <div class="general-data-view-container-row">
-
-                        <p-checkbox [binary]="true" [ngModel]="isChecked(item)" (ngModelChange)="toggleSelection(item)">
+                        <p-checkbox [binary]="true" [ngModel]="isChecked(item)" (onChange)="toggleSelection(item)">
                         </p-checkbox>
 
                         <div class="general-data-view-container-row-label">

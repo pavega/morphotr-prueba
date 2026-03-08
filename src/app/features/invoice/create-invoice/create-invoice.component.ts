@@ -66,7 +66,8 @@ export class CreateInvoiceComponent {
         this.emitInvoice(resp.NUMERO_FACTURA);
       },
       error: (err) => {
-        this.notificationService.showSuccessMessage('Error en la solicitud');
+        this.notificationService.showErrorMessage('Error en la solicitud');
+        this.spinnerService.hide();
         console.error('Error', err);
       },
       complete: () => {

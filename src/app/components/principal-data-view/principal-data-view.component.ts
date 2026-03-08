@@ -63,6 +63,8 @@ export class PrincipalDataViewComponent implements AfterViewInit, OnChanges {
   // resetear paginacion cuando cambia la lista
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['items']) {
+      this.currentSelection.set([]);
+      this.searchTerm.set('');
       queueMicrotask(() => this.resetPagination());
     }
   }

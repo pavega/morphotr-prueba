@@ -1,0 +1,24 @@
+.principal-confirm-dialog {
+  &-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    i {
+      font-size: 1.5rem;
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    button {
+      &:focus-visible {
+        outline: 0;
+      }
+    }
+  }
+}

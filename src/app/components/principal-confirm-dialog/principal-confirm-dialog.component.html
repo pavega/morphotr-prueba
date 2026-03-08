@@ -1,0 +1,11 @@
+<div class="principal-confirm-dialog">
+    <div class="principal-confirm-dialog-icon">
+        <i [class]="config.data?.icon"></i>
+    </div>
+    <h2>{{ config.data?.title || 'Confirmar acción' }}</h2>
+    <p>{{ config.data?.message || '¿Estás seguro?' }}</p>
+    <div class="principal-confirm-dialog-buttons">
+        <button class="primary-btn" (click)="confirm()">{{ config.data.confirmLabel }}</button>
+        <button class="secondary-btn" (click)="cancel()">{{ config.data.cancelLabel }}</button>
+    </div>
+</div>

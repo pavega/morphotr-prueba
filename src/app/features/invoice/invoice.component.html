@@ -1,6 +1,6 @@
 <div class="invoices">
     <div class="invoices-content">
-        <div class="invoices-content-title">
+        <div class="invoices-content-title main-card">
             <h2>Crear nueva factura</h2>
         </div>
 
@@ -23,7 +23,7 @@
             </div>
 
             @if(invoiceDetails().length>0){
-            <app-principal-table [columns]="columns" [data]="invoiceDetails()" (delete)="deleteInvoiceDetail($event)">
+            <app-principal-table [columns]="columns" [data]="invoiceDetails()" (delete)="showDeleteDialog($event)">
                 <tr class="table-summary-row">
                     <td colspan="4" class="summary-label">Total factura</td>
                     <td class="summary-value">

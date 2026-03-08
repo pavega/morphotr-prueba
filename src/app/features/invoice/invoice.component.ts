@@ -16,6 +16,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { NotificationService } from '../../services/notification/notification.service';
 import { EmptyComponent } from '../../components/empty/empty.component';
 import { getError, isInvalid } from '../../helpers/form-helper';
+import { ConfirmDialogService } from '../../services/confirm-dialog/confirm-dialog.service';
 
 @Component({
   selector: 'app-invoice',
@@ -58,6 +59,7 @@ export class InvoiceComponent implements OnInit {
     private fb: FormBuilder,
     private spinnerService: NgxSpinnerService,
     private notificationService: NotificationService,
+    private confirmDialogService: ConfirmDialogService,
   ) {
     this.buildInvoiceDetailForm();
   }
@@ -143,6 +145,10 @@ export class InvoiceComponent implements OnInit {
   }
 
   createLineDetail() {
+    if (!this.invoiceDetailForm.value.product) {
+      this.notificationService.showInfoMessage('Debes seleccionar un producto');
+      return;
+    }
     if (this.invoiceDetailForm.invalid) return;
 
     const payload = {
@@ -167,6 +173,20 @@ export class InvoiceComponent implements OnInit {
           this.spinnerService.hide();
         },
       });
+  }
+
+  async showDeleteDialog(row: any) {
+    const confirmed = await this.confirmDialogService.openConfirmDialog({
+      title: '¿Estas seguro de eliminar esta factura?',
+      message: 'Esta acción no se puede revertir',
+      confirmLabel: 'Eliminar',
+      icon: 'pi pi-trash',
+      styleClass: 'custom-confirm-dialog-delete',
+    });
+
+    if (confirmed) {
+      this.deleteInvoiceDetail(row);
+    }
   }
 
   deleteInvoiceDetail(row: any) {
